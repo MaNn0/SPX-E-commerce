@@ -8,13 +8,14 @@ from app.routes import login as user_login
 import logging
 from app.routes import cart_item
 import os
+import uvicorn
 
 app = FastAPI()
 setup_cors(app)
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("backend.app.main:app", host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))  # fallback to 8000 if PORT not set
+    uvicorn.run("app.main:app", host="0.0.0.0", port=port, reload=True)
 
 product.Base.metadata.create_all(bind=engine)
 
@@ -27,11 +28,7 @@ app.include_router(cart_item.router)
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-@app.on_event("startup")
-async def startup_event():
-    try:
-        product.Base.metadata.create_all(bind=engine)
-        logger.info("Database tables created successfully")
-    except Exception as e:
-        logger.error(f"Failed to create tables: {e}")
         
+@app.get("/")
+def read_root():
+    return {"message": "SPX E-Commerce API is up and running!"}
