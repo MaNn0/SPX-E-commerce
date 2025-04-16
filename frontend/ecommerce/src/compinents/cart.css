@@ -1,0 +1,12 @@
+.cart-container {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(-20px);
+    /* Initially hide the cart */
+}
+
+.cart-container.open {
+    opacity: 1;
+    transform: translateY(0);
+    /* When the cart is open */
+}
