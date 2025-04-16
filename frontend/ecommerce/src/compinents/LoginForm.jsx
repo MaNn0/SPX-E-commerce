@@ -14,7 +14,7 @@ export default function RegisterForm() {
         // console.log(loginData);
 
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, loginData, {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}mano`, loginData, {
                 headers: {
                     'Content-Type': 'application/json',
                 }
