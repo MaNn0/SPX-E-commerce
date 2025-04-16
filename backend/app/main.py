@@ -14,7 +14,7 @@ setup_cors(app)
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("backend.app.main:app", host="0.0.0.0", port=5000, reload=True)
+    uvicorn.run("backend.app.main:app", host="0.0.0.0", port=8000)
 
 product.Base.metadata.create_all(bind=engine)
 
@@ -34,3 +34,4 @@ async def startup_event():
         logger.info("Database tables created successfully")
     except Exception as e:
         logger.error(f"Failed to create tables: {e}")
+        
