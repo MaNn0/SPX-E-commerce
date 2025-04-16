@@ -15,7 +15,7 @@ export default function Profile() {
         const fetchUser = async () => {
             try {
                 const token = sessionStorage.getItem('access_token');
-                const response = await axios.get('http://localhost:8000/users', {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/users`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -44,7 +44,7 @@ export default function Profile() {
     const handleSave = async () => {
         try {
             const token = sessionStorage.getItem('access_token');
-            await axios.patch('http://localhost:8000/users', formData, {
+            await axios.patch(`${import.meta.env.VITE_API_URL}/users`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

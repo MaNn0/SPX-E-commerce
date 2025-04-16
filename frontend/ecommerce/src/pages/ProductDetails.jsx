@@ -12,7 +12,7 @@ export default function ProductDetails() {
 
     useEffect(() => {
         const fetchProduct = async () => {
-            const response = await axios.get(`http://localhost:8000/products/${id}`);
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/products/${id}`);
             setProduct(response.data);
         };
         fetchProduct();

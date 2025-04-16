@@ -11,7 +11,7 @@ export default function ProductList() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/products');
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/products`);
                 // console.log('Full response:', response.data);
                 setProducts(response.data);
             } catch (error) {

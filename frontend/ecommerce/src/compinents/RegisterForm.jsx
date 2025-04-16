@@ -34,7 +34,7 @@ export default function RegisterForm() {
         try {
             if (userdata.password === userdata.confirmPassword) {
                 setPasswordMismatch(false);
-                const response = await axios.post('http://localhost:8000/users', userdata);
+                const response = await axios.post(`${import.meta.env.VITE_API_URL}/users`, userdata);
                 // console.log('User created:', response.data);
                 setSuccess(true)
             } else {

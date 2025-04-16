@@ -14,7 +14,7 @@ export default function CartContextGlobal({ children }) {
 
             try {
                 const response = await axios.get(
-                    'http://localhost:8000/cart_items/cart',
+                    `${import.meta.env.VITE_API_URL}/cart_items/cart`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -39,7 +39,7 @@ export default function CartContextGlobal({ children }) {
 
         try {
             const response = await axios.post(
-                'http://localhost:8000/cart_items/cart',
+                `${import.meta.env.VITE_API_URL}/cart_items/cart`,
                 {
                     product_id: product.id, // Changed from product.product.id
                     quantity: 1,
@@ -53,7 +53,7 @@ export default function CartContextGlobal({ children }) {
             );
             // Fetch updated cart items after adding
             const updatedCart = await axios.get(
-                'http://localhost:8000/cart_items/cart',
+                `${import.meta.env.VITE_API_URL}/cart_items/cart`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -75,7 +75,7 @@ export default function CartContextGlobal({ children }) {
 
         try {
             await axios.delete(
-                `http://localhost:8000/cart_items/cart/${cartItem.id}`, // Use cartItem.id (the cart item ID)
+                `${import.meta.env.VITE_API_URL}/cart_items/cart/${cartItem.id}`, // Use cartItem.id (the cart item ID)
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
