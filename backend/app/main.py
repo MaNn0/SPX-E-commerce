@@ -14,8 +14,9 @@ app = FastAPI()
 setup_cors(app)
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))  # fallback to 8000 if PORT not set
-    uvicorn.run("app.main:app", host="0.0.0.0", port=port, reload=True)
+    port = int(os.environ.get("PORT", 5000))
+    uvicorn.run("app.main:app", host="0.0.0.0", port=port)
+
 
 product.Base.metadata.create_all(bind=engine)
 
@@ -30,5 +31,5 @@ logger = logging.getLogger(__name__)
 
         
 @app.get("/")
-def read_root():
-    return {"message": "SPX E-Commerce API is up and running!"}
+def home():
+    return {"status": "SPX E-Commerce API is working ✅"}
