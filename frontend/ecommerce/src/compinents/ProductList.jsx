@@ -12,7 +12,7 @@ export default function ProductList() {
         const fetchProducts = async () => {
             try {
                 const response = await axios.get('http://localhost:8000/products');
-                console.log('Full response:', response.data);
+                // console.log('Full response:', response.data);
                 setProducts(response.data);
             } catch (error) {
                 console.error('Error fetching products:', error);
@@ -21,15 +21,8 @@ export default function ProductList() {
 
         fetchProducts();
     }, []);
-    console.log(products);
+    // console.log(products);
 
-
-
-    // const handleProductClicked = (productId) => {
-    //     console.log(productId);
-
-    //     setProductClicked(productClicked === productId ? null : productId)
-    // }
     return (
         <div className="bg-neutral-200 mx-auto max-w-2xl mx-4 mt-16 sm:px-6 py-5 sm:mt-24 lg:max-w-7xl lg:px-8">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers purchased</h2>

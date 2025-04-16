@@ -109,7 +109,6 @@ export default function Profile() {
                         </div>
                     </div>
 
-                    {/* Profile Details */}
                     <div className="p-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="bg-gray-50 p-4 rounded-lg">

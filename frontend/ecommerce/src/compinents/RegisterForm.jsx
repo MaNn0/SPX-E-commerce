@@ -35,7 +35,7 @@ export default function RegisterForm() {
             if (userdata.password === userdata.confirmPassword) {
                 setPasswordMismatch(false);
                 const response = await axios.post('http://localhost:8000/users', userdata);
-                console.log('User created:', response.data);
+                // console.log('User created:', response.data);
                 setSuccess(true)
             } else {
                 setPasswordMismatch(true)

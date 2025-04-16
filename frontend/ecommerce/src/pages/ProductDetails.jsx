@@ -8,7 +8,7 @@ export default function ProductDetails() {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const { addToCart } = useCart();
-    console.log(product);
+    // console.log(product);
 
     useEffect(() => {
         const fetchProduct = async () => {

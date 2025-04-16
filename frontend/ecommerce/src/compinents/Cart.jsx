@@ -9,7 +9,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 export default function Cart() {
     const [open, setOpen] = useState(true)
     const { cartItems, removeFromCart } = useCart();
-    console.log(cartItems);
+    // console.log(cartItems);
 
     return (
         <Dialog open={open} onClose={setOpen} className="relative z-10">

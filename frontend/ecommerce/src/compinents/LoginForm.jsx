@@ -11,7 +11,7 @@ export default function RegisterForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(loginData);
+        // console.log(loginData);
 
         try {
             const response = await axios.post('http://localhost:8000/login', loginData, {
@@ -20,12 +20,11 @@ export default function RegisterForm() {
                 }
             });
 
-            // Store the token in sessionStorage
             sessionStorage.setItem('access_token', response.data.access_token);
             sessionStorage.setItem('first_name', response.data.first_name);
             // setToken(response.data.access_token);
             setErrorMsg('');
-            console.log('Login success:', response.data);
+            // console.log('Login success:', response.data);
             navigate('/');
             window.location.reload();
 

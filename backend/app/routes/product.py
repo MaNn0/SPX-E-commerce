@@ -5,9 +5,6 @@ from typing import List
 from app.models.product import Product
 from app.schemas.product import ProductOut, ProductUpdate
 import cloudinary.uploader
-import app.cloudinary_config
-import os
-
 
 router = APIRouter(prefix='/products', tags=['products'])
 
@@ -24,7 +21,6 @@ def create_product(
     image: UploadFile = File(...),
     db: Session = Depends(get_db)
 ):
-    # 1. Upload image to Cloudinary
     try:
         result = cloudinary.uploader.upload(image.file, folder="products")
         image_url = result.get("secure_url")
@@ -32,7 +28,6 @@ def create_product(
         print("Cloudinary error:", e)
         raise HTTPException(status_code=500, detail="Failed to upload image")
 
-    # 2. Create product with image_url
     new_product = Product(
         name=name,
         description=description,
@@ -45,7 +40,6 @@ def create_product(
         image_url=image_url
     )
 
-    # 3. Save to DB
     db.add(new_product)
     db.commit()
     db.refresh(new_product)

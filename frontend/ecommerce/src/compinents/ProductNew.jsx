@@ -10,7 +10,7 @@ export default function ProductNew() {
         const fetchProducts = async () => {
             try {
                 const response = await axios.get('http://localhost:8000/products');
-                console.log('Full response:', response.data);
+                // console.log('Full response:', response.data);
                 setProducts(response.data);
             } catch (error) {
                 console.error('Error fetching products:', error);
@@ -19,7 +19,7 @@ export default function ProductNew() {
 
         fetchProducts();
     }, []);
-    console.log(products);
+    // console.log(products);
 
     const hotProducts = products.filter(product => product.hot == true)
     return (
