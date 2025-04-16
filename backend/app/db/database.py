@@ -5,8 +5,7 @@ import os
 
 load_dotenv()
 
-DATABASE_URL = 'postgresql://mano:2625@spx-e-commerce-production.up.railway.app:5432/ecommerce_db'
-
+DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
     raise ValueError("DATABASE_URL environment variable not set")
 
