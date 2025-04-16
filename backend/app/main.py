@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.db.database import engine #refers to the database engine used to interact with the database
+from .db.database import engine
 from app.core.cors import setup_cors
 from app.models import product
 from app.routes import product as product_routers
