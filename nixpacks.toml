@@ -1,7 +1,7 @@
 [phases.build]
 nixPkgs = ["python39"]
 cmds = [
-    "pip install -r backend/requirements.txt"  # Install Python deps
+    "pip install -r backend/requirements.txt"
 ]
 
 [phases.start]
